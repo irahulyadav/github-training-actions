@@ -31,10 +31,16 @@ jobs:
         uses: ./
         id: action-test
         with:
-          user-name: 'Renan Almeida'
+          user-name: 'Rahul'
+          location: 'Stockholm'
 
       - name: Ensure custom greeting is correct
-        if: steps.action-test.outputs.greeting == 'Hello Renan Almeida!'
+        if: steps.action-test.outputs.greeting == 'Hello Rahul!'
+        run: |
+          echo "Greeting matches expected value: ${{ steps.action-test.outputs.greeting }}"
+
+      - name: Ensure custom greeting is correct
+        if: steps.action-test.outputs.greeting == 'Hello Rahul!'
         run: |
           echo "Greeting matches expected value: ${{ steps.action-test.outputs.greeting }}"
 
