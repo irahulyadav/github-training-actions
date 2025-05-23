@@ -39,6 +39,11 @@ jobs:
         run: |
           echo "Greeting matches expected value: ${{ steps.action-test.outputs.greeting }}"
 
+      - name: Ensure custom meeting is correct
+        if: steps.action-test.outputs.meeting == 'in Stockholm!'
+        run: |
+          echo "Greeting matches expected value: ${{ steps.action-test.outputs.greeting }}"
+
       - name: Ensure custom greeting is correct
         if: steps.action-test.outputs.greeting == 'Hello Rahul!'
         run: |
