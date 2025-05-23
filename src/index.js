@@ -7,6 +7,10 @@ try {
     console.log(`Hello ${nameToGreet}!`);
     core.setOutput("greeting", `Hello ${nameToGreet}!`);
 
+    const nameToMeet = core.getInput('location');
+    console.log(`Hello ${nameToGreet}!`);
+    core.setOutput("meeting", `at ${nameToMeet}!`);
+
     const time = (new Date()).toTimeString();
     core.setOutput("time", time);
 
