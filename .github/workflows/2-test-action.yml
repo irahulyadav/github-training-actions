@@ -44,17 +44,14 @@ jobs:
         run: |
           echo "Greeting matches expected value: ${{ steps.action-test.outputs.greeting }}"
 
-      - name: Ensure custom greeting is correct
-        if: steps.action-test.outputs.greeting == 'Hello Rahul!'
-        run: |
-          echo "Greeting matches expected value: ${{ steps.action-test.outputs.greeting }}"
 
       - name: Output if custom greeting does not match
-        if: steps.action-test.outputs.greeting != 'Hello Renan Almeida!'
+        if: steps.action-test.outputs.greeting != 'Hello Rahul!'
         run: |
           echo "Greeting does not match expected value."
           echo "Expected: Hello Renan Almeida!"
           echo "Actual: ${{ steps.action-test.outputs.greeting }}"
+          echo "Actual: ${{ steps.action-test.outputs.meeting }}"
           exit 1
 
       # Test with default input
@@ -63,12 +60,12 @@ jobs:
         id: default-test
 
       - name: Verify Default Greeting
-        if: steps.default-test.outputs.greeting == 'Hello Renan!'
+        if: steps.default-test.outputs.greeting == 'Hello Rahul!'
         run: |
           echo "Default greeting works: ${{ steps.default-test.outputs.greeting }}"
 
       - name: Output if default greeting does not match
-        if: steps.default-test.outputs.greeting != 'Hello Renan!'
+        if: steps.default-test.outputs.greeting != 'Hello Rahul!'
         run: |
           echo "Default greeting does not match expected value."
           echo "Expected: Hello Renan!"
