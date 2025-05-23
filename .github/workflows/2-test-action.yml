@@ -40,7 +40,7 @@ jobs:
           echo "Greeting matches expected value: ${{ steps.action-test.outputs.greeting }}"
 
       - name: Ensure custom meeting is correct
-        if: steps.action-test.outputs.meeting == 'in Stockholm!'
+        if: steps.action-test.outputs.meeting == 'at Stockholm!'
         run: |
           echo "Greeting matches expected value: ${{ steps.action-test.outputs.greeting }}"
 
